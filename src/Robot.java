@@ -70,7 +70,10 @@ public class Robot {
         setPos(startPos);
 
         while (!maze.isDestination(pos)) {
-            double rnd = Math.random();
+            if (maze.canNavigate(pos)) {
+                maze.markVisited(pos);
+            }
+            /*double rnd = Math.random();
 
             if (rnd <= 0.25) {
                 moveUp(maze);
@@ -80,7 +83,7 @@ public class Robot {
                 moveLeft(maze);
             } else {
                 moveRight(maze);
-            }
+            }*/
         }
 
          System.out.println("\nNumber of moves: " + getMoves());
